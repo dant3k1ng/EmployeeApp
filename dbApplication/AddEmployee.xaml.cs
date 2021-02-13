@@ -25,10 +25,5 @@ namespace dbApplication
         {
             InitializeComponent();
         }
-
-        private void nameTextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
     }
 }

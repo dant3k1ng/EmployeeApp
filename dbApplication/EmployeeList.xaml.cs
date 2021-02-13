@@ -28,7 +28,7 @@ namespace dbApplication
             InitializeComponent();
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        private void Load_Click(object sender, RoutedEventArgs e)
         {
             DownloadData();
         }
@@ -36,9 +36,9 @@ namespace dbApplication
         public void DownloadData()
         {
             string connection =
-            "SERVER = localhost; DATABASE = employeeinfo; UID = root@localhost; PASSWORD ='';";
+            "SERVER = 127.0.0.1; DATABASE = employeeinfo; UID = root; PASSWORD ='';";
 
-            string query = "SELECT Name FROM Employee";
+            string query = "SELECT employee.Name, gender.Gender, position.Position, workingtime.WorkingTime FROM employee INNER JOIN gender ON employee.Gender = gender.ID INNER JOIN position ON employee.Position = position.ID INNER JOIN workingtime ON employee.WorkingTime = workingtime.ID";
 
             MySqlConnection connect = new MySqlConnection(connection);
             try
@@ -51,7 +51,7 @@ namespace dbApplication
                     MySqlDataAdapter da = new MySqlDataAdapter(cmdSel);
                     da.Fill(dt);
 
-                    dataGrid1.ItemsSource = dt.DefaultView;
+                    employeeGrid.ItemsSource = dt.DefaultView;
                 }
             }
             catch (MySqlException)
@@ -62,5 +62,9 @@ namespace dbApplication
             connect.Close();
         }
 
+        private void Add_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
     }
 }
