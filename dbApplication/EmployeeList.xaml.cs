@@ -64,7 +64,8 @@ namespace dbApplication
 
         private void Add_Click(object sender, RoutedEventArgs e)
         {
-            
+            EmployeeInfo addEmployee = new EmployeeInfo();
+            NavigationService.Navigate(addEmployee);
         }
     }
 }

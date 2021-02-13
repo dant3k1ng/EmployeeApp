@@ -68,28 +68,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Employee.cs">
-      <DependentUpon>EmployeesDB.tt</DependentUpon>
-    </Compile>
     <Compile Include="AddEmployee.xaml.cs">
       <DependentUpon>AddEmployee.xaml</DependentUpon>
     </Compile>
     <Compile Include="EmployeeList.xaml.cs">
       <DependentUpon>EmployeeList.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="EmployeesDB.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EmployeesDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Gender.cs">
-      <DependentUpon>EmployeesDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Position.cs">
-      <DependentUpon>EmployeesDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="WorkingTime.cs">
-      <DependentUpon>EmployeesDB.tt</DependentUpon>
     </Compile>
     <Page Include="AddEmployee.xaml">
       <SubType>Designer</SubType>
@@ -106,16 +89,6 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="EmployeesDB.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EmployeesDB.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EmployeesDB.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EmployeesDB.edmx</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -140,13 +113,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="EmployeesDB.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>EmployeesDB.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="EmployeesDB.edmx.diagram">
-      <DependentUpon>EmployeesDB.edmx</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Employee.datasource" />
     <None Include="Properties\DataSources\Gender.datasource" />
@@ -162,16 +128,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="database.png" />
-    <Content Include="EmployeesDB.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>EmployeesDB.edmx</DependentUpon>
-      <LastGenOutput>EmployeesDB.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="EmployeesDB.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>EmployeesDB.edmx</DependentUpon>
-      <LastGenOutput>EmployeesDB.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

@@ -5,8 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:dbApplication"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="Add Employee">
+      d:DesignHeight="450" d:DesignWidth="800" Title="EmployeeAdd">
 
     <Grid>
         <Grid Margin="10,10,10,10">
@@ -21,7 +20,7 @@
             <Label Grid.Column="1" Foreground="White" FontWeight="DemiBold" FontSize="28" Margin="32,10,205,368" >
                 Wprowadź dane:
             </Label>
-
+            
 
             <!--<Button Margin="0,380,10,10" Width="164" Height="40" HorizontalAlignment="Right" Click="Load_Click" Grid.ColumnSpan="2">Dodaj</Button>-->
         </Grid>
