@@ -1,0 +1,61 @@
+﻿<Page x:Class="dbApplication.EmployeeInfo"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:dbApplication"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="EmployeeInfo">
+    <Page.Resources>
+        <CollectionViewSource x:Key="employeeViewSource"/>
+        <CollectionViewSource x:Key="employeeViewSource1" d:DesignSource="{d:DesignInstance {x:Type local:Employee}, CreateList=True}"/>
+    </Page.Resources>
+
+    <Grid Margin="10,0,10,10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="96*"/>
+            <RowDefinition Height="Auto" MinHeight="267"/>
+            <RowDefinition Height="77*" />
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.Background>
+            <ImageBrush ImageSource="database.png"/>
+        </Grid.Background>
+
+        <Label Grid.Column="1" Foreground="White" FontWeight="DemiBold" FontSize="28" Margin="55,61,-55,206" Grid.RowSpan="2">
+            Informacje szczgółowe:
+        </Label>
+        <Grid x:Name="grid1" Grid.ColumnSpan="2" DataContext="{StaticResource employeeViewSource1}" HorizontalAlignment="Left" Margin="78,58,0,0" Grid.Row="1" VerticalAlignment="Top" Height="210" Width="635">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="14.165"/>
+                <RowDefinition Height="20.835"/>
+            </Grid.RowDefinitions>
+            <Label Content="Gender:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3,0,3" Grid.Row="3" VerticalAlignment="Center" FontWeight="Medium" FontSize="14" Foreground="White"/>
+            <TextBox x:Name="genderTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="3,5,-398,6" Grid.Row="3" Text="{Binding Gender, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="529"/>
+            <Label Content="Id:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3,0,3" Grid.Row="0" VerticalAlignment="Center" FontWeight="Medium" FontSize="14" Foreground="White"/>
+            <TextBox x:Name="idTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="3,6,-398,5" Grid.Row="0" Text="{Binding Id, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="529"/>
+            <Label Content="Name:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3,0,3" Grid.Row="1" VerticalAlignment="Center" FontWeight="Medium" FontSize="14" Foreground="White"/>
+            <TextBox x:Name="nameTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="3,5,-398,6" Grid.Row="1" Text="{Binding Name, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="529"/>
+            <Label Content="Position:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3,0,3" Grid.Row="4" VerticalAlignment="Center" FontWeight="Medium" FontSize="14" Foreground="White"/>
+            <TextBox x:Name="positionTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="3,6,-398,5" Grid.Row="4" Text="{Binding Position, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="529"/>
+            <Label Content="Surname:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3,0,3" Grid.Row="2" VerticalAlignment="Center" FontWeight="Medium" FontSize="14" Foreground="White"/>
+            <TextBox x:Name="surnameTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="3,6,-398,5" Grid.Row="2" Text="{Binding Surname, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="529"/>
+            <Label Content="Working Time:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3,0,0" Grid.Row="5" VerticalAlignment="Center" FontWeight="Medium" FontSize="14" Foreground="White" Height="32" Grid.RowSpan="2"/>
+            <TextBox x:Name="workingTimeTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="30" Margin="3,5,-398,5" Grid.Row="5" Text="{Binding WorkingTime, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="529" RenderTransformOrigin="0.499,0.292" Grid.RowSpan="2"/>
+        </Grid>
+    </Grid>
+</Page>
