@@ -36,7 +36,7 @@ namespace dbApplication
         public void DownloadData()
         {
             string connection =
-            "SERVER = 127.0.0.1; DATABASE = employeeinfo; UID = root; PASSWORD ='';";
+            "SERVER = 127.0.0.1; DATABASE = employeeinfo; UID = root; PASSWORD =;";
 
             string query = "SELECT employee.ID, employee.Name, gender.Gender, position.Position, workingtime.WorkingTime FROM employee INNER JOIN gender ON employee.Gender = gender.ID INNER JOIN position ON employee.Position = position.ID INNER JOIN workingtime ON employee.WorkingTime = workingtime.ID";
 

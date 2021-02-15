@@ -5,5 +5,5 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:dbApplication"
         mc:Ignorable="d"
-        Title="Database Application" Height="550" Width="800" Source="EmployeeList.xaml">
+        Title="Database Application" Height="550" Width="800" Icon="icon.ico" Source="EmployeeList.xaml">
 </NavigationWindow>
