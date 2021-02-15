@@ -25,5 +25,10 @@ namespace dbApplication
         {
             InitializeComponent();
         }
+
+        public void AddEmpl_Click()
+        { 
+            
+        }
     }
 }

@@ -8,21 +8,59 @@
       d:DesignHeight="450" d:DesignWidth="800" Title="EmployeeAdd">
 
     <Grid>
-        <Grid Margin="10,10,10,10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="89*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Margin="10">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="auto"/>
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" MinHeight="466"/>
+                <RowDefinition Height="0*" />
+                <RowDefinition Height="0*" />
+            </Grid.RowDefinitions>
             <Grid.Background>
-                <ImageBrush ImageSource="database.png"/>
+                <ImageBrush ImageSource="bg.jpg"/>
             </Grid.Background>
 
-            <Label Grid.Column="1" Foreground="White" FontWeight="DemiBold" FontSize="28" Margin="32,10,205,368" >
+            <Label Foreground="White" FontWeight="DemiBold" FontSize="28" Margin="32,10,205,368" >
                 Wprowadź dane:
             </Label>
-            
 
-            <!--<Button Margin="0,380,10,10" Width="164" Height="40" HorizontalAlignment="Right" Click="Load_Click" Grid.ColumnSpan="2">Dodaj</Button>-->
+            <Label Foreground="white" FontWeight="DemiBold" FontSize="16" Margin="60,96,114,298" Content="Imię i Nazwisko:"/>
+
+            <TextBox Name="nameAndSurname" Margin="189,101,0,342" Width="200" HorizontalAlignment="Left"/>
+
+            <Label Foreground="white" FontWeight="DemiBold" FontSize="16" Margin="142,129,476,271" Content="Płeć:"/>
+            <StackPanel Margin="0,0,0,36">
+                <ComboBox Name="gender" Width="80" Height="auto" Margin="190,135,0,10" HorizontalAlignment="Left">
+                    <ComboBoxItem IsSelected="True" Content="Male"/>
+                    <ComboBoxItem Content="Female"/>
+                </ComboBox>
+            </StackPanel>
+
+            <Label Margin="72,164,0,235" Foreground="White" FontSize="16" FontWeight="DemiBold" HorizontalAlignment="Left" Content="Wymiar pracy:" Width="114"/>
+            <StackPanel Margin="0,0,0,36">
+                <ComboBox Name="workingTime" Width="80" Height="auto" Margin="190,170,0,10" HorizontalAlignment="Left" RenderTransformOrigin="0.5,0.5">
+                    <ComboBoxItem IsSelected="True" Content="Fulltime"/>
+                    <ComboBoxItem Content="Parttime"/>
+                    <ComboBoxItem Content="Practice"/>
+                </ComboBox>
+            </StackPanel>
+
+            <Label Margin="88,200,0,235" Foreground="White" FontSize="16" FontWeight="DemiBold" HorizontalAlignment="Left" Content="Stanowisko:" Width="96"/>
+            <StackPanel Margin="0,0,0,36">
+                <ComboBox Name="position" Width="100" Height="auto" Margin="190,205,0,10" HorizontalAlignment="Left" RenderTransformOrigin="0.5,0.5">
+                    <ComboBoxItem IsSelected="True" Content="Programmer"/>
+                    <ComboBoxItem Content="Boss"/>
+                    <ComboBoxItem Content="Trainee"/>
+                </ComboBox>
+            </StackPanel>
+
+
+            <Button Margin="0,383,10,51" Width="134" HorizontalAlignment="Right">Dodaj</Button>
         </Grid>
     </Grid>
 </Page>

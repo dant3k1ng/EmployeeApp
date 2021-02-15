@@ -14,14 +14,14 @@
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
             <Grid.Background>
-                <ImageBrush ImageSource="database.png"/>
+                <ImageBrush ImageSource="bg.jpg"/>
             </Grid.Background>
 
             <Label Grid.Column="1" Foreground="White" FontWeight="DemiBold" FontSize="28" Margin="32,10,205,368" >
                 Lista pracowników:
             </Label>
 
-            <DataGrid Width="500" Height="150" Name="employeeGrid" Foreground="Black" FontWeight="Medium" Grid.ColumnSpan="2" Margin="140,130,140,100">
+            <DataGrid Width="500" Height="150" Name="employeeGrid" Foreground="Black" FontWeight="Medium" Grid.ColumnSpan="2" Margin="140,130,140,150">
             </DataGrid>
 
             <Button Margin="0,380,10,10" Width="164" Height="40" HorizontalAlignment="Right" Click="Load_Click" Grid.ColumnSpan="2">Załaduj</Button>
