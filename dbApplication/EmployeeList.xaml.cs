@@ -28,22 +28,32 @@ namespace dbApplication
             InitializeComponent();
         }
 
+        /// <summary>
+        /// działanie po naciśnięciu przycisku odwołanie do DownloadData()
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+
         private void Load_Click(object sender, RoutedEventArgs e)
         {
             DownloadData();
         }
+        
+        /// <summary>
+        /// nawiązanie połączenia z bazą danych oraz pobieranie wartości z bazy danych
+        /// </summary>
 
         public void DownloadData()
         {
-            string connection =
-            "SERVER = 127.0.0.1; DATABASE = employeeinfo; UID = root; PASSWORD =;";
+            string connectionString =
+            "SERVER = 127.0.0.1; DATABASE = employeeinfo; USER = root; PASSWORD = ;";
 
-            string query = "SELECT employee.ID, employee.Name, gender.Gender, position.Position, workingtime.WorkingTime FROM employee INNER JOIN gender ON employee.Gender = gender.ID INNER JOIN position ON employee.Position = position.ID INNER JOIN workingtime ON employee.WorkingTime = workingtime.ID";
-
-            MySqlConnection connect = new MySqlConnection(connection);
+            MySqlConnection connect = new MySqlConnection(connectionString);
             try
             {
                 connect.Open();
+
+                string query = "SELECT employee.ID, employee.Name, gender.Gender, position.Position, workingtime.WorkingTime FROM employee INNER JOIN gender ON employee.Gender = gender.ID INNER JOIN position ON employee.Position = position.ID INNER JOIN workingtime ON employee.WorkingTime = workingtime.ID";
 
                 using (MySqlCommand cmdSel = new MySqlCommand(query, connect))
                 {
@@ -61,6 +71,12 @@ namespace dbApplication
 
             connect.Close();
         }
+
+        /// <summary>
+        /// przycisk odpowiadający za powrót do poprzedniej strony (EmployeeInfo).
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         private void Add_Click(object sender, RoutedEventArgs e)
         {

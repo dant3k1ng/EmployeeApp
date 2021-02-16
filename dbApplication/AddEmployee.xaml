@@ -8,11 +8,12 @@
       d:DesignHeight="450" d:DesignWidth="800" Title="EmployeeAdd">
 
     <Grid>
+        <!--Siatka dzieląca stronę na wiersze i kolumny-->
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Grid Grid.RowSpan="2" Height="480">
+        <Grid Grid.RowSpan="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
@@ -24,15 +25,20 @@
                 <ImageBrush ImageSource="bg.jpg"/>
             </Grid.Background>
 
+            <!-- Label z tytułem strony -->
+
             <Label Foreground="White" FontWeight="DemiBold" FontSize="28" Margin="32,10,205,226" >
                 Wprowadź dane:
             </Label>
-
+            
+            <!-- Label z imieniem i nazwiskiem pracownika którego chcemy dodać do bazy danych -->
             <Label Foreground="white" FontWeight="DemiBold" FontSize="16" Margin="60,96,114,195" Content="Imię i Nazwisko:"/>
-
+            <!--TextBox przechowujący imię i nazwisko pracownika-->
             <TextBox Name="nameAndSurname" Margin="189,101,0,200" Width="200" HorizontalAlignment="Left"/>
 
+            <!--Label płci pracownika którego chcemy dodać do bazy danych-->
             <Label Foreground="white" FontWeight="DemiBold" FontSize="16" Margin="142,129,476,160" Content="Płeć:"/>
+            <!--ComboBox przechowujący płeć-->
             <StackPanel Margin="0,0,0,16" Grid.RowSpan="2">
                 <ComboBox Name="genderBox" Width="80" Height="auto" Margin="190,135,0,10" HorizontalAlignment="Left">
                     <ComboBoxItem IsSelected="True" Content="Male" />
@@ -40,7 +46,9 @@
                 </ComboBox>
             </StackPanel>
 
+            <!--Label wymiaru pracy który chcemy dodać do bazy danych-->
             <Label Margin="72,164,0,124" Foreground="White" FontSize="16" FontWeight="DemiBold" HorizontalAlignment="Left" Content="Wymiar pracy:" Width="114"/>
+            <!--ComboBox przechowujący wymiar pracy-->
             <StackPanel>
                 <ComboBox Name="workingTimeBox" Width="80" Height="auto" Margin="190,170,0,10" HorizontalAlignment="Left" RenderTransformOrigin="0.5,0.5">
                     <ComboBoxItem IsSelected="True" Content="Fulltime"/>
@@ -49,7 +57,9 @@
                 </ComboBox>
             </StackPanel>
 
+            <!--Label stanowiska które chcemy dodać do bazy danych-->
             <Label Margin="88,200,0,93" Foreground="White" FontSize="16" FontWeight="DemiBold" HorizontalAlignment="Left" Content="Stanowisko:" Width="96"/>
+            <!--ComboBox przechowujący pozycje-->
             <StackPanel Height="450" VerticalAlignment="Top" Grid.RowSpan="2">
                 <ComboBox Name="positionBox" Width="100" Height="auto" Margin="190,205,0,10" HorizontalAlignment="Left">
                     <ComboBoxItem IsSelected="True" Content="Programmer"/>
@@ -58,9 +68,10 @@
                 </ComboBox>
             </StackPanel>
 
-
-            <Button Margin="0,70,10,32" Width="164" Height="40" HorizontalAlignment="Right" Click="AddEmpl_Click" Grid.Row="1">Dodaj</Button>
-            <Button Margin="10,70,0,32" Width="164" Height="40" HorizontalAlignment="Left" Click="Back_Click" Grid.Row="1">Powrót</Button>
+            <!--Sekcja przycisków odpowiadających kolejno za dodanie pracownika do bazy danych oraz za przenieniesnie się do strony EmployeeList-->
+            
+            <Button Margin="0,70,10,10" Width="145" Height="25" HorizontalAlignment="Right" Click="AddEmpl_Click" Grid.Row="1">Dodaj</Button>
+            <Button Margin="10,70,0,10" Width="145" Height="25" HorizontalAlignment="Left" Click="Back_Click" Grid.Row="1">Powrót</Button>
         </Grid>
     </Grid>
 </Page>

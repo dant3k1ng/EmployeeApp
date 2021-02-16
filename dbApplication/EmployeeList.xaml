@@ -8,6 +8,7 @@
       d:DesignHeight="450" d:DesignWidth="800" Title="EmployeeList">
 
     <Grid>
+        <!--Siatka dzieląca stronę na wiersze i kolumny-->
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto"/>
@@ -16,16 +17,22 @@
             <Grid.Background>
                 <ImageBrush ImageSource="bg.jpg"/>
             </Grid.Background>
-
+             
+            <!-- Label z tytułem strony -->
+            
             <Label Grid.Column="1" Foreground="White" FontWeight="DemiBold" FontSize="28" Margin="32,10,205,368" >
                 Lista pracowników:
             </Label>
+            
+            <!-- Siatka danych uzupełniana wartościami pobranymi z bazy danych-->
 
             <DataGrid Width="500" Height="150" Name="employeeGrid" Foreground="Black" FontWeight="Medium" Grid.ColumnSpan="2" Margin="140,130,140,150">
             </DataGrid>
+            
+            <!--Sekcja przycisków odpowiadających kolejno za wczytanie wartości z bazy danych oraz za przenieniesnie się do strony AddEmployee-->
 
-            <Button Margin="0,380,10,10" Width="164" Height="40" HorizontalAlignment="Right" Click="Load_Click" Grid.ColumnSpan="2">Załaduj</Button>
-            <Button Margin="10,380,0,10" Width="164" Height="40" HorizontalAlignment="Left" Click="Add_Click" Grid.ColumnSpan="2">Dodaj pracownika</Button>
+            <Button Margin="0,398,10,10" Width="145" Height="25" HorizontalAlignment="Right" Click="Load_Click" Grid.ColumnSpan="2">Załaduj</Button>
+            <Button Margin="10,398,0,10" Width="145" Height="25" HorizontalAlignment="Left" Click="Add_Click" Grid.ColumnSpan="2">Dodaj pracownika</Button>
         </Grid>
     </Grid>
 </Page>

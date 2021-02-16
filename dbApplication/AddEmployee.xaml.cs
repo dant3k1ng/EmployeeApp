@@ -28,17 +28,33 @@ namespace dbApplication
             InitializeComponent();
         }
 
+        /// <summary>
+        /// przycisk odpowiadający za przeniesienie do strony EmployeeList
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+
         private void Back_Click(object sender, RoutedEventArgs e)
         {
             EmployeeList employeeList = new EmployeeList();
             NavigationService.Navigate(employeeList);
         }
 
+        /// <summary>
+        /// działanie po naciśnięciu przycisku odwołanie do AddEmpl()
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+
         private void AddEmpl_Click(object sender, RoutedEventArgs e)
         {
             AddEmpl();
         }
 
+        /// <summary>
+        /// pobieranie wartości z pól TextBox i ContentBox ze strony "AddEmployee" oraz zamiana z tekstu na odpowiadającą mu wartość liczbową 
+        /// </summary>
+        
         public void AddEmpl()
         {
             string fullname = nameAndSurname.Text;
@@ -68,19 +84,27 @@ namespace dbApplication
             else if (position == "Trainee")
                 positionID = 3;
 
-            string connection = "SERVER = 127.0.0.1; DATABASE = employeeinfo; UID = root; PASSWORD = '';";
+            string connectionString =
+            "SERVER = 127.0.0.1; DATABASE = employeeinfo; USER = root; PASSWORD = ;";
 
-            MySqlConnection connect = new MySqlConnection(connection);
+            ///nawiązanie połączenia z bazą danych employeeinfo oraz wstawnienie watrości do bazy danych
+
+            MySqlConnection connect2 = new MySqlConnection(connectionString);
             try
             {
-                string query = $"INSERT INTO employee VALUES ({null}, {fullname},{genderID},{workingTimeID},{positionID});";
-                connect.Open();
+                connect2.Open();
 
-                using (MySqlCommand cmd = new MySqlCommand(query, connect))
+                string query = $"INSERT INTO employee VALUES ({null}, '{fullname}', {genderID}, {workingTimeID}, {positionID});";
+
+                MySqlCommand cmd2 = new MySqlCommand(query, connect2);
+                
+                if (cmd2.ExecuteNonQuery() == 1)
                 {
-                    cmd.ExecuteNonQuery();
-
                     MessageBox.Show("Poprawnie dodano pracownika.", "Dodano pracownika");
+                }
+                else
+                {
+                    MessageBox.Show("Błąd dodawania do bazy danych!", "Błąd");
                 }
             }
             catch (MySqlException)
@@ -88,7 +112,7 @@ namespace dbApplication
                 MessageBox.Show("Błąd połączenia z bazą danych!", "Błąd");
             }
 
-            connect.Close();
+            connect2.Close();
         }
     }
 }
