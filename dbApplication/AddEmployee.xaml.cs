@@ -52,13 +52,13 @@ namespace dbApplication
         }
 
         /// <summary>
-        /// pobieranie wartości z pól TextBox i ContentBox ze strony "AddEmployee" oraz zamiana z tekstu na odpowiadającą mu wartość liczbową 
+        /// pobiera wartości z pól TextBox i ContentBox ze strony "AddEmployee" oraz zamiana z tekstu na odpowiadającą mu wartość liczbową 
         /// </summary>
         
         public void AddEmpl()
         {
             string fullname = nameAndSurname.Text;
-            
+
             string gender = genderBox.Text;
             int genderID = 1;
             if (gender == "Male")
@@ -84,21 +84,21 @@ namespace dbApplication
             else if (position == "Trainee")
                 positionID = 3;
 
-            string connectionString =
-            "SERVER = 127.0.0.1; DATABASE = employeeinfo; USER = root; PASSWORD = ;";
-
             ///nawiązanie połączenia z bazą danych employeeinfo oraz wstawnienie watrości do bazy danych
+            string connectionString =
+            "SERVER = 'localhost'; DATABASE = 'employeeinfo'; USER = 'root'; PASSWORD = '';";
 
-            MySqlConnection connect2 = new MySqlConnection(connectionString);
+            MySqlConnection connect = new MySqlConnection(connectionString);
+
             try
             {
-                connect2.Open();
+                connect.Open();
 
-                string query = $"INSERT INTO employee VALUES ({null}, '{fullname}', {genderID}, {workingTimeID}, {positionID});";
+                string query = $"INSERT INTO `employee`(`Name`, `Gender`, `WorkingTime`, `Position`) VALUES ('{fullname}', {genderID}, {workingTimeID}, {positionID});";
 
-                MySqlCommand cmd2 = new MySqlCommand(query, connect2);
+                MySqlCommand cmd = new MySqlCommand(query, connect);
                 
-                if (cmd2.ExecuteNonQuery() == 1)
+                if (cmd.ExecuteNonQuery() == 1)
                 {
                     MessageBox.Show("Poprawnie dodano pracownika.", "Dodano pracownika");
                 }
@@ -112,7 +112,7 @@ namespace dbApplication
                 MessageBox.Show("Błąd połączenia z bazą danych!", "Błąd");
             }
 
-            connect2.Close();
+            connect.Close();
         }
     }
 }

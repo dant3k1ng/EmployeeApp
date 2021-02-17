@@ -46,9 +46,10 @@ namespace dbApplication
         public void DownloadData()
         {
             string connectionString =
-            "SERVER = 127.0.0.1; DATABASE = employeeinfo; USER = root; PASSWORD = ;";
+            "SERVER = 'localhost'; DATABASE = 'employeeinfo'; USER = 'root'; PASSWORD = '';";
 
             MySqlConnection connect = new MySqlConnection(connectionString);
+
             try
             {
                 connect.Open();
